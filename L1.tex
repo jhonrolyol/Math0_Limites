@@ -1,0 +1,105 @@
+% Preamble
+  \documentclass[a3paper, 11pt]{memoir}
+% Packages
+  \usepackage{graphicx, xcolor}
+  \usepackage{lscape}
+  \usepackage{tcolorbox}
+  \usepackage[utf8]{inputenc}
+  \usepackage[spanish]{babel}
+  \usepackage{latexsym,amsmath,amssymb,amsfonts,amsthm} 
+  \usepackage{tikz}
+  \usepackage{pgfplots}
+  \newtheorem{defi}{Definición}[section]
+  \newtheorem{lema}{Lema}
+  \newtheorem{coro}{Corolario}[section]
+  \newtheorem{teo}{Teorema}[section]
+  \usepackage{natbib}
+  \usepackage{hyperref}
+  \usepackage{xcolor}
+  \usepackage{mathrsfs}
+  \usepackage{geometry}
+  \geometry{a3paper,left=4cm,right=4cm,top=4cm,bottom=4cm}
+  \usepackage{lipsum}
+  % \setcounter{tocdepth}{X} sirve para colocar subsubíndices
+  \usepackage{cancel}
+  \usepackage{mathtools}
+  \DeclarePairedDelimiter\ceil{\lceil}{\rceil}
+  \DeclarePairedDelimiter\floor{\lfloor}{\rfloor}
+  \providecommand{\abs}[1]{\lvert#1\rvert}
+  \providecommand{\norm}[1]{\lVert#1\rVert}
+  %Paquetes necesarios para gráficos llevados de geogebra
+  \usepackage{pgfplots}
+  \pgfplotsset{compat=1.15}
+  \usepackage{mathrsfs}
+  \usetikzlibrary{arrows}
+  \pagestyle{empty}
+  \makeatletter
+  \newlength{\numberheight}
+  \newlength{\barlength}
+  \makechapterstyle{veelo}{%
+    \setlength{\afterchapskip}{40pt}
+    \renewcommand*{\chapterheadstart}{\vspace*{40pt}}
+    \renewcommand*{\afterchapternum}{\par\nobreak\vskip 25pt}
+    \renewcommand*{\chapnamefont}{\normalfont\LARGE\flushright\color{magenta}}
+    \renewcommand*{\chapnumfont}{\normalfont\HUGE}
+    \renewcommand*{\chaptitlefont}{\normalfont\Huge\bfseries\flushright\color{cyan}}
+    \renewcommand*{\printchaptername}{%
+      \chapnamefont\scshape{\@chapapp}}
+    \renewcommand*{\chapternamenum}{}
+    \setlength{\beforechapskip}{18mm}
+    \setlength{\midchapskip}{\paperwidth}
+    \addtolength{\midchapskip}{-\textwidth}
+    \addtolength{\midchapskip}{-\spinemargin}
+    \renewcommand*{\printchapternum}{%
+      \makebox[0pt][l]{\hspace{.8em}%
+        \resizebox{!}{\beforechapskip}{\chapnumfont \thechapter}%
+        \hspace{.8em}%
+        \rule{\midchapskip}{\beforechapskip}%
+      }}%
+  }
+  \makeatother
+  \chapterstyle{veelo}
+  \definecolor{letra}{RGB}{13,17,14}
+  \definecolor{title}{rgb}{1.0,0.03,0.0}
+  \definecolor{pagecolor}{RGB}{13,17,14}
+% Document
+\begin{document}
+  \pagecolor{pagecolor}
+  \huge
+  \textcolor{magenta}{Calculate:} 
+  \begin{equation*}
+      \textcolor{magenta}{L}  \textcolor{cyan}{ = \lim_{x \to 0 }   \left(  \dfrac{\sqrt{2}-\sqrt{1+\cos{(7x)}}   }{1-\cos{(5x)}}    \right)      }
+  \end{equation*}
+  \begin{center}
+    \textcolor{magenta}{Solution}
+  \end{center}
+  \begin{equation*}
+    \textcolor{magenta}{L}  \textcolor{cyan}{=    \lim_{x \to 0 }   \left(  \left(\dfrac{\sqrt{2}-\sqrt{1+\cos{(7x)}}   }{1-\cos{(5x)}} \right)  \textcolor{magenta}{\cdot} \left( \dfrac{\sqrt{2}+\sqrt{1+\cos{(7x)}} }{\sqrt{2}+\sqrt{1+\cos{(7x)}} } \right) \right)      }
+  \end{equation*}
+  \begin{equation*}
+    \textcolor{magenta}{L}  \textcolor{cyan}{=    \lim_{x \to 0 }  \left(   \dfrac{1-\cos{(7x)}}{\left(1-\cos{(5x)}\right) \textcolor{magenta}{\cdot}  \left(\sqrt{2}+\sqrt{1+\cos{(7x)}}\right)}   \right)    }
+  \end{equation*}
+  \begin{equation*}
+    \textcolor{magenta}{L}  \textcolor{cyan}{= \lim_{x \to 0 }  \left(  \dfrac{1}{\sqrt{2} +\sqrt{1+\cos{(7x)}}} \right)  \textcolor{magenta}{\cdot}  \lim_{x \to 0 }  \left(  \dfrac{1-\cos{(7x)}}{1-\cos{(5x)}} \right)                 }
+  \end{equation*}
+  \begin{equation*}
+    \textcolor{magenta}{L}  \textcolor{cyan}{=  \dfrac{1}{2\sqrt{2}} \textcolor{magenta}{\cdot}  \lim_{x \to 0 }  \left( \dfrac{1-\cos{(7x)}}{1-\cos{(5x)}}\right) =  \dfrac{1}{2\sqrt{2}} \textcolor{magenta}{\cdot}  \dfrac{\lim\limits_{x \to 0 } \left(1-\cos{(7x)}\right)}{\lim\limits_{x \to 0 } \left(1-\cos{(5x)}\right)} }
+  \end{equation*}
+  \begin{equation*}
+    \textcolor{magenta}{L}  \textcolor{cyan}{= \dfrac{1}{2\sqrt{2}} \textcolor{magenta}{\cdot}  \dfrac{ 49\lim\limits_{x \to 0} \left(\dfrac{1-\cos{(7x)}}{(7x)^{2}}\right) }{  25\lim\limits_{x \to 0} \left(\dfrac{1-\cos{(7x)}}{(5x)^{2}}\right) }   = \dfrac{49}{50\sqrt{2}}       }
+  \end{equation*}
+  \\
+  \textcolor{cyan}{Where}
+  \\
+  \begin{align*}
+    \textcolor{cyan}{\lim\limits_{x \to 0} \left(\dfrac{1-\cos{(7x)}}{(7x)^{2}}\right)} & \textcolor{cyan}{=1}\\
+    \textcolor{cyan}{\lim\limits_{x \to 0} \left(\dfrac{1-\cos{(7x)}}{(7x)^{2}}\right)} & \textcolor{cyan}{=1}\\
+  \end{align*}
+  \\
+  \textcolor{cyan}{Therefore}
+  \\
+    \begin{equation*}
+    \textcolor{yellow}{\therefore}\, \, \, \, \, \textcolor{magenta}{L}  \textcolor{cyan}{=  \lim_{x \to 0 }   \left(  \dfrac{\sqrt{2}-\sqrt{1+\cos{(7x)}}   }{1-\cos{(5x)}}   \right)  =  \dfrac{49}{50\sqrt{2}}   }
+    \end{equation*}
+
+\end{document}
